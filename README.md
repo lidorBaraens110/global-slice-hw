@@ -1,5 +1,5 @@
-running app 
-npm install
+running app ->
+npm install ->
 npm run start:dev
 
 for testing the app - go to http://localhost:3000/api
