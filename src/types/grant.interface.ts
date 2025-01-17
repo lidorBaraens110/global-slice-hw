@@ -4,6 +4,5 @@ export enum GrantStatus {
 }
 
 export interface Grant {
-  status?: GrantStatus;
   optionsShared: number;
 }

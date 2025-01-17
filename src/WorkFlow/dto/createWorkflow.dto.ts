@@ -29,7 +29,7 @@ export class IsArrayOfEnumArrays implements ValidatorConstraintInterface {
 export class CreateWorkflowDto {
   @ApiProperty({
     description: 'Array of arrays of StepType values',
-    example: [['SEND_EMAIL', 'UPDATE_GRANT'], ['SEND_EMAIL']],
+    example: [['SEND_EMAIL_COMPANY', 'SEND_EMAIL'], ['UPDATE_GRANT']],
     isArray: true,
     type: String,
     enum: StepType,

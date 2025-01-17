@@ -25,7 +25,7 @@ export class WorkflowController {
       throw new HttpException(
         {
           status: HttpStatus.BAD_REQUEST,
-          error: `Workflow failed: ${error.message}`,
+          error: `Workflow failed. ${error.message}`,
         },
         HttpStatus.BAD_REQUEST,
       );

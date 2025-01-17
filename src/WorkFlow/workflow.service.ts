@@ -37,7 +37,7 @@ export class WorkflowService {
       await Promise.all(stepPromises);
     } catch (error) {
       console.error(`Step failed: ${error.message}`);
-      throw new Error(`Workflow stopped due to failure in step.`);
+      throw new Error(`reason: ${error.message}`);
     }
   }
 }
