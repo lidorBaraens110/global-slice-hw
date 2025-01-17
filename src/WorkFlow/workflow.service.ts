@@ -10,19 +10,11 @@ export class WorkflowService {
     const { workflow } = createWorkflow;
     for (const stepTypes of workflow) {
       const currentSteps = this.createMultipleSteps(stepTypes);
-      await this.runStep(currentSteps);
+      await this.runMultipleSteps(currentSteps);
     }
   }
 
-  createMultipleSteps(stepTypes: StepType[]): WorkflowStep[] {
-    return stepTypes.map((stepType) => this.getStep(stepType));
-  }
-
-  getStep(stepId: StepType): WorkflowStep {
-    return steps[stepId];
-  }
-
-  async runStep(pendingSteps: WorkflowStep[]) {
+  async runMultipleSteps(pendingSteps: WorkflowStep[]) {
     try {
       const stepPromises = pendingSteps.map(async (step) => {
         console.log(`Starting step: ${step.stepType}`);
@@ -39,5 +31,13 @@ export class WorkflowService {
       console.error(`Step failed: ${error.message}`);
       throw new Error(`reason: ${error.message}`);
     }
+  }
+
+  createMultipleSteps(stepTypes: StepType[]): WorkflowStep[] {
+    return stepTypes.map((stepType) => this.getStep(stepType));
+  }
+
+  getStep(stepId: StepType): WorkflowStep {
+    return steps[stepId];
   }
 }
